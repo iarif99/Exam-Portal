@@ -1,0 +1,22 @@
+{
+  "name": "Pro Exam Portal",
+  "short_name": "ExamPortal",
+  "description": "Premium High-Quality Exam Portal for BCS and Bank Prep.",
+  "start_url": "./Base64.html",
+  "display": "standalone",
+  "background_color": "#090c10",
+  "theme_color": "#f5a623",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3407/3407024.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3407/3407024.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

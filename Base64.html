@@ -32,20 +32,47 @@
 
   .en-text, #timer, .option-label, .sub-card b, .stat-value { font-family: 'Outfit', sans-serif; }
 
+  /* 💎 GEN Z GLASSMORPHISM OVERLOAD 💎 */
+  .sub-card, .question-card, .stat-card {
+      backdrop-filter: blur(20px) !important;
+      border: 0.5px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* 📸 STORY RECEIPT OVERLAY 📸 */
+  #receipt-overlay {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(20px);
+      z-index: 100000; display: none; align-items: center; justify-content: center;
+      flex-direction: column; opacity: 0; transition: opacity 0.4s ease;
+  }
+  .story-receipt {
+      width: 340px; height: 650px; background: linear-gradient(145deg, rgba(22, 27, 34, 0.9), rgba(13, 17, 23, 0.9));
+      border-radius: 20px; border: 0.5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 50px rgba(245, 166, 35, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.05);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; color: #fff; font-family: 'Outfit', sans-serif; position: relative;
+      overflow: hidden;
+  }
+  .receipt-lines {
+      width: 100%; height: 2px; background: repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 20px);
+      margin: 20px 0;
+  }
+  .story-btn {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #fff; padding: 15px 40px; border-radius: 50px; font-weight: 800; border: none; font-size: 20px;
+      cursor: pointer; display: block; margin: 30px auto 10px auto; width: fit-content; text-transform: uppercase;
+      box-shadow: 0 8px 25px rgba(220, 39, 67, 0.4); animation: constantPulse 2.5s infinite; transition: transform 0.3s;
+  }
+  .story-btn:hover { transform: scale(1.05); }
+
   #arif-wm {
     position: fixed; font-family: 'Outfit'; font-weight: 800; font-size: 16px; 
     pointer-events: none; z-index: 10000; letter-spacing: 3px; 
     color: var(--accent); text-shadow: 0 2px 10px rgba(245, 166, 35, 0.4); opacity: 0.9;
     bottom: 20px;
   }
-  .wm-right {
-    left: 100%; transform: translateX(calc(-100% - 20px));
-    transition: left 1.2s cubic-bezier(0.65, 0, 0.35, 1), transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-  }
-  .wm-left {
-    left: 20px; transform: translateX(0);
-    transition: left 1.2s cubic-bezier(0.65, 0, 0.35, 1), transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-  }
+  .wm-right { left: 100%; transform: translateX(calc(-100% - 20px)); transition: left 1.2s cubic-bezier(0.65, 0, 0.35, 1), transform 1.2s cubic-bezier(0.65, 0, 0.35, 1); }
+  .wm-left { left: 20px; transform: translateX(0); transition: left 1.2s cubic-bezier(0.65, 0, 0.35, 1), transform 1.2s cubic-bezier(0.65, 0, 0.35, 1); }
 
   .bg-grid {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
@@ -144,17 +171,8 @@
     letter-spacing: 1px;
   }
   
-  .finish-btn.bottom-center { 
-    bottom: 30px; left: 50%; transform: translateX(-50%);
-    padding: 15px 40px; border-radius: 50px; font-size: 18px;
-  }
-  
-  .finish-btn.side-sticky { 
-    top: 50%; right: 0; transform: translateY(-50%); 
-    padding: 20px 10px; font-size: 16px; border-radius: 10px 0 0 10px; 
-    writing-mode: vertical-rl; text-orientation: upright; letter-spacing: 4px;
-  } 
-  
+  .finish-btn.bottom-center { bottom: 30px; left: 50%; transform: translateX(-50%); padding: 15px 40px; border-radius: 50px; font-size: 18px; }
+  .finish-btn.side-sticky { top: 50%; right: 0; transform: translateY(-50%); padding: 20px 10px; font-size: 16px; border-radius: 10px 0 0 10px; writing-mode: vertical-rl; text-orientation: upright; letter-spacing: 4px; } 
   .finish-btn:hover { opacity: 1; filter: brightness(1.2); }
 
   @keyframes heartbeatAnim {
@@ -188,15 +206,9 @@
   .stat-card { padding: 20px; background: rgba(0,0,0,0.6); border-radius: 15px; border: 1px solid var(--border); box-shadow: inset 0 0 20px rgba(255,255,255,0.02); }
   .stat-value { font-size: 42px; font-weight: 800; display: block; margin-bottom: 5px; }
 
-  .btn-3d {
-    flex: 1; padding: 15px 20px; border-radius: 12px; font-weight: 800; font-family: 'Outfit'; border: none;
-    color: white; cursor: pointer; transition: all 0.3s ease;
-    text-transform: uppercase; letter-spacing: 1px; font-size: 16px;
-  }
-  
+  .btn-3d { flex: 1; padding: 15px 20px; border-radius: 12px; font-weight: 800; font-family: 'Outfit'; border: none; color: white; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 16px; }
   .btn-green { background: #2ea043; box-shadow: 0 6px 0 #185e24; }
   .btn-red { background: #da3633; box-shadow: 0 6px 0 #8e1f1d; }
-
   .active-glow.btn-green { box-shadow: 0 4px 20px rgba(46,160,67,0.4), 0 6px 0 #185e24; filter: brightness(1.1); transform: translateY(-2px); }
   .active-glow.btn-red { box-shadow: 0 4px 20px rgba(218,54,51,0.4), 0 6px 0 #8e1f1d; filter: brightness(1.1); transform: translateY(-2px); }
   .dimmed { opacity: 0.5; filter: grayscale(60%); transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,0.5) !important; }
@@ -219,23 +231,9 @@
   .water-fill { height: 100%; width: 0%; position: absolute; left: 0; top: 0; background-size: 200% 100%; animation: flowWater 2s infinite linear; transition: width 1.5s ease; }
   @keyframes flowWater { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
 
-  .explanation-box {
-    margin-top: 20px; padding: 20px; border-radius: 12px; display: none;
-    background: rgba(30, 58, 138, 0.2); color: #93c5fd; 
-    border: 1px solid rgba(30, 58, 138, 0.5); font-size: 16px; font-weight: bold; cursor: pointer; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s; 
-    position: relative; text-align: center; transform-origin: center center; z-index: 1;
-  }
-  .explanation-box:hover {
-    transform: scale(2); z-index: 999;
-    background: #1e40af; color: #ffffff; 
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6); border-color: #3b82f6;
-  }
-  .question-card.review-mode:has(.explanation-box:hover) .option-label:not(.correct-ans) { 
-      opacity: 0 !important; visibility: hidden; 
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
+  .explanation-box { margin-top: 20px; padding: 20px; border-radius: 12px; display: none; background: rgba(30, 58, 138, 0.2); color: #93c5fd; border: 1px solid rgba(30, 58, 138, 0.5); font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s; position: relative; text-align: center; transform-origin: center center; z-index: 1; }
+  .explanation-box:hover { transform: scale(2); z-index: 999; background: #1e40af; color: #ffffff; box-shadow: 0 15px 40px rgba(0,0,0,0.6); border-color: #3b82f6; }
+  .question-card.review-mode:has(.explanation-box:hover) .option-label:not(.correct-ans) { opacity: 0 !important; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
   .correct-ans { background: #144e20 !important; border-color: var(--correct) !important; color: #fff; box-shadow: 0 4px 15px rgba(35,134,54,0.3); }
   .wrong-ans { background: #5c1818 !important; border-color: var(--wrong) !important; color: #fff; opacity: 0.7; }
 
@@ -258,17 +256,12 @@
   body.force-mobile #top-left-submit { font-size: 18px; padding: 8px 15px; left: 10px; top: 10px; background: #000; }
   body.force-mobile .stat-grid { grid-template-columns: 1fr; gap: 15px; }
   body.force-mobile .subject-stats-grid { grid-template-columns: 1fr; }
-  
   body.force-mobile .finish-btn.bottom-center { padding: 12px 25px; font-size: 16px; bottom: 15px; }
   body.force-mobile .finish-btn.side-sticky { right: 0; font-size: 12px; padding: 15px 5px; }
   body.force-mobile .explanation-box:hover { transform: none; } 
   body.force-mobile .action-btn-group { flex-direction: column; }
-  
   body.force-mobile #arif-wm { font-size: 10px; letter-spacing: 1px; bottom: 10px; opacity: 0.6; }
-
-  @media (max-width: 768px) {
-    #arif-wm { font-size: 10px; letter-spacing: 1px; bottom: 10px; opacity: 0.6; }
-  }
+  @media (max-width: 768px) { #arif-wm { font-size: 10px; letter-spacing: 1px; bottom: 10px; opacity: 0.6; } }
 
   #import-section { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(22, 27, 34, 0.6); border-radius: 15px; border: 1px solid var(--border); }
   #base64-input { width: 100%; height: 80px; background: rgba(0,0,0,0.5); color: #fff; border: 1px solid rgba(245,166,35,0.4); border-radius: 10px; padding: 10px; font-family: 'Outfit'; resize: vertical; }
@@ -368,44 +361,35 @@
 
     <div id="review-container"></div>
     
+    <button class="story-btn" onclick="showReceipt()">📸 Share to Story</button>
+
     <button class="start-btn" style="display: block; margin: 40px auto 0; padding: 15px 50px; border-radius: 50px; font-size: 22px; width: fit-content;" onclick="location.reload()">RETAKE EXAM</button>
 
   </div>
 </div>
 
-<script>
-// --- UPDATED JAVASCRIPT: NEW FEATURES ADDED BELOW --- //
+<div id="receipt-overlay" onclick="closeReceipt(event)">
+    <p style="color:var(--accent); font-weight: 800; font-family: 'Outfit'; margin-bottom: 20px; text-shadow: 0 0 10px rgba(245,166,35,0.5);">📸 TAKE A SCREENSHOT</p>
+    <div class="story-receipt" id="story-receipt" onclick="event.stopPropagation()">
+        </div>
+    <button style="margin-top: 30px; background: rgba(255,255,255,0.1); color: white; border: none; padding: 10px 30px; border-radius: 30px; font-weight: bold; cursor: pointer; transition: 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" onclick="closeReceipt({target: {id: 'receipt-overlay'}})">CLOSE</button>
+</div>
 
-const manifestObj = {
-  name: "Pro Exam Portal",
-  short_name: "ExamPortal",
-  display: "standalone",
-  background_color: "#090c10",
-  theme_color: "#f5a623",
-  icons: [{ src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1YTYyMyIvPjwvc3ZnPg==", sizes: "192x192", type: "image/svg+xml" }]
-};
+<script>
+// --- GLOBAL VARIABLES --- //
+const manifestObj = { name: "Pro Exam Portal", short_name: "ExamPortal", display: "standalone", background_color: "#090c10", theme_color: "#f5a623", icons: [{ src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1YTYyMyIvPjwvc3ZnPg==", sizes: "192x192", type: "image/svg+xml" }] };
 const manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: 'application/manifest+json' });
 document.getElementById('manifest-link').href = URL.createObjectURL(manifestBlob);
 
 if ('serviceWorker' in navigator) {
-  const swCode = `
-    self.addEventListener('install', (e) => e.waitUntil(self.skipWaiting()));
-    self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
-    self.addEventListener('fetch', (e) => {
-      e.respondWith(fetch(e.request).catch(() => new Response('Offline Mode Active. Use local file.')));
-    });
-  `;
+  const swCode = `self.addEventListener('install', (e) => e.waitUntil(self.skipWaiting())); self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim())); self.addEventListener('fetch', (e) => { e.respondWith(fetch(e.request).catch(() => new Response('Offline Mode Active. Use local file.'))); });`;
   const swBlob = new Blob([swCode], { type: 'application/javascript' });
   navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(err => console.log('SW registration failed'));
 }
 
 function toggleDeviceView() {
   const isMobile = document.getElementById('device-toggle').checked;
-  if (isMobile) {
-    document.body.classList.add('force-mobile');
-  } else {
-    document.body.classList.remove('force-mobile');
-  }
+  if (isMobile) { document.body.classList.add('force-mobile'); } else { document.body.classList.remove('force-mobile'); }
 }
 
 let db = [];
@@ -413,52 +397,73 @@ let timeLeft = 3600;
 let timerInt;
 let headlineTimeout;
 let TOTAL_TIME = 3600;
-
 let globalCorrect = 0;
 let globalWrong = 0;
 
-// NEW FEATURE: Auto-Load from Link & LocalStorage
+// 🛡️ NEW: DATA PERSISTENCE VARIABLES
+let savedAnswers = {};
+
+// 🛡️ NEW: ADVANCED INITIALIZATION LOGIC (Handles Page Refreshes)
 window.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const urlData = urlParams.get('data');
   const savedData = localStorage.getItem('last_exam_db');
+  const activeExam = localStorage.getItem('examActive');
 
-  if (urlData) {
-    document.getElementById('base64-input').value = urlData;
-    importQuestions(true); // Load silently without clicking the button
+  if (activeExam === 'true' && savedData) {
+      // 🚨 USER REFRESHED MID-EXAM! RESTORING STATE...
+      db = JSON.parse(savedData);
+      TOTAL_TIME = db.length * 36;
+      timeLeft = parseInt(localStorage.getItem('timeLeft')) || TOTAL_TIME;
+      savedAnswers = JSON.parse(localStorage.getItem('savedAnswers') || '{}');
+      
+      const savedName = localStorage.getItem('userName');
+      if (savedName) document.getElementById('user-name').value = savedName;
+
+      // Jump straight to Exam View
+      document.getElementById('home-page').style.display = 'none';
+      document.getElementById('exam-area').style.display = 'block';
+      document.getElementById('exam-area').classList.remove('hidden-anim');
+      
+      const wmEl = document.getElementById('arif-wm');
+      wmEl.classList.remove('wm-right');
+      wmEl.classList.add('wm-left');
+
+      const tw = document.getElementById('timer-wrapper');
+      const tls = document.getElementById('top-left-submit');
+      tw.style.display = 'block'; tls.style.display = 'block';
+      setTimeout(() => { tw.style.opacity = '1'; tls.style.opacity = '1'; }, 50);
+
+      render();
+      
+      // Auto-check saved answers
+      for (let qName in savedAnswers) {
+          const radio = document.querySelector(`input[name="${qName}"][value="${savedAnswers[qName]}"]`);
+          if (radio) radio.checked = true;
+      }
+
+      startTimer();
+      setupObserver();
+
+  } else if (urlData) {
+      document.getElementById('base64-input').value = urlData;
+      importQuestions(true); 
   } else if (savedData) {
-    db = JSON.parse(savedData);
-    renderHomePageStats();
+      db = JSON.parse(savedData);
+      renderHomePageStats();
   }
   
   setupDragAndDrop();
 });
 
-// NEW FEATURE: Drag & Drop Zone
 function setupDragAndDrop() {
   const dropZone = document.getElementById('import-section');
-  dropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropZone.style.borderColor = 'var(--accent)';
-    dropZone.style.background = 'rgba(245, 166, 35, 0.1)';
-  });
-  dropZone.addEventListener('dragleave', () => {
-    dropZone.style.borderColor = 'var(--border)';
-    dropZone.style.background = 'rgba(22, 27, 34, 0.6)';
-  });
+  dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--accent)'; dropZone.style.background = 'rgba(245, 166, 35, 0.1)'; });
+  dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = 'var(--border)'; dropZone.style.background = 'rgba(22, 27, 34, 0.6)'; });
   dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropZone.style.borderColor = 'var(--border)';
-    dropZone.style.background = 'rgba(22, 27, 34, 0.6)';
+    e.preventDefault(); dropZone.style.borderColor = 'var(--border)'; dropZone.style.background = 'rgba(22, 27, 34, 0.6)';
     const file = e.dataTransfer.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        document.getElementById('base64-input').value = event.target.result;
-        importQuestions();
-      };
-      reader.readAsText(file);
-    }
+    if (file) { const reader = new FileReader(); reader.onload = (event) => { document.getElementById('base64-input').value = event.target.result; importQuestions(); }; reader.readAsText(file); }
   });
 }
 
@@ -466,106 +471,60 @@ function renderHomePageStats() {
   const grid = document.getElementById('dynamic-subject-grid');
   const startBtn = document.getElementById('start-exam-btn');
   const totalMarks = document.getElementById('total-marks');
-  
   grid.innerHTML = '';
   
   if (db.length === 0) {
-    totalMarks.innerText = 'পূর্ণমান: 0';
-    startBtn.style.display = 'none';
-    grid.innerHTML = '<p style="color: var(--muted); font-size: 18px; width: 100%;">Please paste your Base64 code and click "Load Questions" to view subjects.</p>';
-    return;
+    totalMarks.innerText = 'পূর্ণমান: 0'; startBtn.style.display = 'none';
+    grid.innerHTML = '<p style="color: var(--muted); font-size: 18px; width: 100%;">Please paste your Base64 code and click "Load Questions" to view subjects.</p>'; return;
   }
 
-  startBtn.style.display = 'inline-block';
-  totalMarks.innerText = `পূর্ণমান: ${db.length}`;
-  
+  startBtn.style.display = 'inline-block'; totalMarks.innerText = `পূর্ণমান: ${db.length}`;
   let categoryCounts = {};
-  db.forEach(item => {
-    categoryCounts[item.cat] = (categoryCounts[item.cat] || 0) + 1;
-  });
-
-  for(let cat in categoryCounts) {
-    grid.innerHTML += `<div class="sub-card"><b>${cat}</b><span>${categoryCounts[cat]}টি প্রশ্ন</span></div>`;
-  }
+  db.forEach(item => { categoryCounts[item.cat] = (categoryCounts[item.cat] || 0) + 1; });
+  for(let cat in categoryCounts) { grid.innerHTML += `<div class="sub-card"><b>${cat}</b><span>${categoryCounts[cat]}টি প্রশ্ন</span></div>`; }
 }
 
-renderHomePageStats();
-
-// UPGRADED FEATURE: Handles all formats and saves to LocalStorage safely
 function importQuestions(silent = false) {
   const input = document.getElementById('base64-input').value.trim();
   if(!input) { if(!silent) alert('Please paste a Base64 string first.'); return; }
-  
   try {
     let parsedData;
-    if (input.startsWith('[')) {
-      parsedData = JSON.parse(input);
-    } else {
-      try {
-        const binary = atob(input);
-        const bytes = new Uint8Array(binary.length);
-        for (let i = 0; i < binary.length; i++) { bytes[i] = binary.charCodeAt(i); }
-        parsedData = JSON.parse(new TextDecoder('utf-8').decode(bytes));
-      } catch (e) {
-        parsedData = JSON.parse(decodeURIComponent(escape(atob(input)))); 
-      }
+    if (input.startsWith('[')) { parsedData = JSON.parse(input); } else {
+      try { const binary = atob(input); const bytes = new Uint8Array(binary.length); for (let i = 0; i < binary.length; i++) { bytes[i] = binary.charCodeAt(i); } parsedData = JSON.parse(new TextDecoder('utf-8').decode(bytes)); } catch (e) { parsedData = JSON.parse(decodeURIComponent(escape(atob(input)))); }
     }
-    
     if(Array.isArray(parsedData) && parsedData.length > 0) {
-      db = parsedData;
-      localStorage.setItem('last_exam_db', JSON.stringify(db)); // Save for offline resume
-      renderHomePageStats();
-      document.getElementById('base64-input').value = ''; 
+      db = parsedData; localStorage.setItem('last_exam_db', JSON.stringify(db)); renderHomePageStats(); document.getElementById('base64-input').value = ''; 
       if(!silent) alert(`সফলভাবে ${db.length}টি প্রশ্ন ইমপোর্ট হয়েছে!`); 
-    } else {
-      if(!silent) alert('Invalid structure! Please ensure your JSON is formatted correctly.');
-    }
-  } catch(e) {
-    if(!silent) alert('ভুল কোড! দয়া করে সঠিক Base64 কোডটি দিন। (Error decoding string)');
-  }
+    } else { if(!silent) alert('Invalid structure! Please ensure your JSON is formatted correctly.'); }
+  } catch(e) { if(!silent) alert('ভুল কোড! দয়া করে সঠিক Base64 কোডটি দিন। (Error decoding string)'); }
 }
 
 function fadeTransition(oldId, newId) {
-  const oldEl = document.getElementById(oldId);
-  const newEl = document.getElementById(newId);
-  
+  const oldEl = document.getElementById(oldId); const newEl = document.getElementById(newId);
   oldEl.classList.add('hidden-anim');
-  
-  setTimeout(() => {
-    oldEl.style.display = 'none';
-    newEl.style.display = 'block';
-    setTimeout(() => {
-      newEl.classList.remove('hidden-anim');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 50);
-  }, 500); 
+  setTimeout(() => { oldEl.style.display = 'none'; newEl.style.display = 'block'; setTimeout(() => { newEl.classList.remove('hidden-anim'); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 50); }, 500); 
 }
 
 function startExam() {
   const userName = document.getElementById('user-name').value.trim();
-  if (!userName) {
-    alert("দয়া করে পরীক্ষা শুরু করার আগে আপনার নাম লিখুন।");
-    return;
-  }
+  if (!userName) { alert("দয়া করে পরীক্ষা শুরু করার আগে আপনার নাম লিখুন।"); return; }
+
+  // 🛡️ NEW: LOCK IN THE SESSION FOR PERSISTENCE
+  localStorage.setItem('userName', userName);
+  localStorage.setItem('examActive', 'true');
+  savedAnswers = {};
+  localStorage.setItem('savedAnswers', JSON.stringify(savedAnswers));
 
   TOTAL_TIME = db.length * 36;
   timeLeft = TOTAL_TIME;
 
   fadeTransition('home-page', 'exam-area');
-  
-  const wmEl = document.getElementById('arif-wm');
-  wmEl.classList.remove('wm-right');
-  wmEl.classList.add('wm-left');
+  const wmEl = document.getElementById('arif-wm'); wmEl.classList.remove('wm-right'); wmEl.classList.add('wm-left');
 
   setTimeout(() => {
-    const tw = document.getElementById('timer-wrapper');
-    const tls = document.getElementById('top-left-submit');
-    tw.style.display = 'block';
-    tls.style.display = 'block';
-    setTimeout(() => { 
-        tw.style.opacity = '1'; 
-        tls.style.opacity = '1'; 
-    }, 50);
+    const tw = document.getElementById('timer-wrapper'); const tls = document.getElementById('top-left-submit');
+    tw.style.display = 'block'; tls.style.display = 'block';
+    setTimeout(() => { tw.style.opacity = '1'; tls.style.opacity = '1'; }, 50);
   }, 500);
 
   render();
@@ -579,6 +538,9 @@ function startTimer() {
   const submitBtns = document.querySelectorAll('.finish-btn'); 
 
   timerInt = setInterval(() => {
+    // 🛡️ NEW: SAVE TIME PROGRESS CONSTANTLY
+    localStorage.setItem('timeLeft', timeLeft);
+
     let m = Math.floor(timeLeft/60), s = timeLeft%60;
     timerEl.innerText = `${m}:${s<10?'0':''}${s}`;
     
@@ -591,12 +553,10 @@ function startTimer() {
     let isLast5Mins = timeLeft <= 300;
     
     if (isLast5Mins) {
-      submitBtns.forEach(btn => btn.style.opacity = '1');
-      document.body.classList.add('red-alert');
+      submitBtns.forEach(btn => btn.style.opacity = '1'); document.body.classList.add('red-alert');
       if (timeLeft % 60 === 0 && timeLeft !== 0) submitBtns.forEach(triggerHeartbeat);
     } else {
-      submitBtns.forEach(btn => btn.style.opacity = '0.5');
-      document.body.classList.remove('red-alert');
+      submitBtns.forEach(btn => btn.style.opacity = '0.5'); document.body.classList.remove('red-alert');
       if (elapsed % 300 === 0 && elapsed !== 0) submitBtns.forEach(triggerHeartbeat);
     }
 
@@ -605,10 +565,7 @@ function startTimer() {
   }, 1000);
 }
 
-function triggerHeartbeat(btn) {
-  btn.classList.add('heartbeat-active');
-  setTimeout(() => btn.classList.remove('heartbeat-active'), 1500);
-}
+function triggerHeartbeat(btn) { btn.classList.add('heartbeat-active'); setTimeout(() => btn.classList.remove('heartbeat-active'), 1500); }
 
 function render() {
   const container = document.getElementById('questions-container');
@@ -617,9 +574,7 @@ function render() {
   
   db.forEach((item, idx) => {
     const card = document.createElement('div');
-    card.className = 'question-card';
-    card.dataset.cat = item.cat;
-    card.id = `QC-${idx}`;
+    card.className = 'question-card'; card.dataset.cat = item.cat; card.id = `QC-${idx}`;
     card.innerHTML = `
       <div style="color:var(--accent); font-weight:800; font-family:'Outfit'; margin-bottom:10px;">${item.cat} // Question ${idx+1}</div>
       <span class="question-text">${item.q}</span>
@@ -633,6 +588,14 @@ function render() {
     frag.appendChild(card);
   });
   container.appendChild(frag);
+
+  // 🛡️ NEW: LISTENERS TO AUTO-SAVE ANSWERS
+  document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+          savedAnswers[e.target.name] = e.target.value;
+          localStorage.setItem('savedAnswers', JSON.stringify(savedAnswers));
+      });
+  });
 }
 
 function setupObserver() {
@@ -640,10 +603,8 @@ function setupObserver() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting) {
-        headline.innerText = entry.target.dataset.cat;
-        headline.style.opacity = 1;
-        clearTimeout(headlineTimeout);
-        headlineTimeout = setTimeout(() => { headline.style.opacity = 0; }, 500);
+        headline.innerText = entry.target.dataset.cat; headline.style.opacity = 1;
+        clearTimeout(headlineTimeout); headlineTimeout = setTimeout(() => { headline.style.opacity = 0; }, 500);
       }
     });
   }, { threshold: 0.5 });
@@ -657,98 +618,58 @@ function sendDataToAdmin(name, correct, wrong, score, totalMarks) {
   const skipped = totalMarks - correct - wrong;
   const percentage = (score / totalMarks) * 100;
   
-  let rating = "Bad";
-  if (percentage >= 80) rating = "Best";
-  else if (percentage >= 50) rating = "Good";
+  // 💀 NEW: GEN Z DYNAMIC SLANG RATINGS
+  let rating = "Cooked 💀";
+  if (percentage >= 80) rating = "Absolute GOAT 🐐";
+  else if (percentage >= 50) rating = "Locked In 🔒";
 
   const dateObj = new Date();
   const dateStr = dateObj.toLocaleDateString('en-GB') + " " + dateObj.toLocaleTimeString('en-GB');
 
-  const message = `🎯 *New Exam Result*\n\n📅 *Date:* ${dateStr}\n👤 *Name:* ${name}\n📝 *Total Marks:* ${totalMarks}\n✅ *Right:* ${correct}\n❌ *Wrong:* ${wrong}\n⏭️ *Skip:* ${skipped}\n🏆 *Final Score:* ${score}\n🌟 *Rating:* ${rating}`;
+  const message = `🎯 *New Exam Result*\n\n📅 *Date:* ${dateStr}\n👤 *Name:* ${name}\n📝 *Total Marks:* ${totalMarks}\n✅ *Right:* ${correct}\n❌ *Wrong:* ${wrong}\n⏭️ *Skip:* ${skipped}\n🏆 *Final Score:* ${score}\n🌟 *Vibe Check:* ${rating}`;
 
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-  
-  fetch(telegramUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message,
-      parse_mode: 'Markdown'
-    })
-  }).then(() => console.log("Result sent to Telegram!"))
-    .catch(err => console.error("Error sending data:", err));
+  fetch(telegramUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'Markdown' }) }).then(() => console.log("Result sent to Telegram!")).catch(err => console.error("Error sending data:", err));
 }
 
 function finishExam() {
   clearInterval(timerInt);
   document.body.classList.remove('red-alert');
-  fadeTransition('exam-area', 'result-page');
   
-  const wmEl = document.getElementById('arif-wm');
-  wmEl.classList.remove('wm-left');
-  wmEl.classList.add('wm-right');
+  // 🛡️ NEW: EXAM IS OVER, CLEAR THE MID-EXAM SAVE DATA
+  localStorage.removeItem('examActive');
+  localStorage.removeItem('timeLeft');
+  localStorage.removeItem('savedAnswers');
 
-  document.getElementById('timer-wrapper').style.opacity = '0';
-  document.getElementById('top-left-submit').style.opacity = '0';
-  setTimeout(() => {
-      document.getElementById('timer-wrapper').style.display = 'none';
-      document.getElementById('top-left-submit').style.display = 'none';
-  }, 500);
+  fadeTransition('exam-area', 'result-page');
+  const wmEl = document.getElementById('arif-wm'); wmEl.classList.remove('wm-left'); wmEl.classList.add('wm-right');
+  document.getElementById('timer-wrapper').style.opacity = '0'; document.getElementById('top-left-submit').style.opacity = '0';
+  setTimeout(() => { document.getElementById('timer-wrapper').style.display = 'none'; document.getElementById('top-left-submit').style.display = 'none'; }, 500);
   
-  globalCorrect = 0;
-  globalWrong = 0;
-  
-  let subs = {};
-  db.forEach(item => {
-      if(!subs[item.cat]) subs[item.cat] = {c:0, t:0};
-      subs[item.cat].t++;
-  });
+  globalCorrect = 0; globalWrong = 0;
+  let subs = {}; db.forEach(item => { if(!subs[item.cat]) subs[item.cat] = {c:0, t:0}; subs[item.cat].t++; });
 
   db.forEach((item, idx) => {
-    const card = document.getElementById(`QC-${idx}`);
-    card.classList.add('review-mode'); 
+    const card = document.getElementById(`QC-${idx}`); card.classList.add('review-mode'); 
     const sel = document.querySelector(`input[name="Q${idx}"]:checked`);
-    
     document.getElementById(`LBL-${idx}-${item.a}`).classList.add('correct-ans');
 
     if(sel) {
       if(parseInt(sel.value) === item.a) { globalCorrect++; subs[item.cat].c++; } 
-      else { 
-          globalWrong++; 
-          document.getElementById(`LBL-${idx}-${sel.value}`).classList.add('wrong-ans');
-          card.classList.add('has-mistake'); 
-      }
-    } else {
-        card.classList.add('has-mistake'); 
-    }
+      else { globalWrong++; document.getElementById(`LBL-${idx}-${sel.value}`).classList.add('wrong-ans'); card.classList.add('has-mistake'); }
+    } else { card.classList.add('has-mistake'); }
   });
 
   updateScoreBoard();
 
-  const subGrid = document.getElementById('subject-stats-grid');
-  subGrid.innerHTML = ''; 
+  const subGrid = document.getElementById('subject-stats-grid'); subGrid.innerHTML = ''; 
   for(let key in subs) {
-    let stat = subs[key];
-    let pct = (stat.c / stat.t) * 100;
-    let gradient = pct > 75 ? "linear-gradient(90deg, #00c6ff, #0072ff)" : 
-                   pct > 40 ? "linear-gradient(90deg, #11998e, #38ef7d)" : 
-                   "linear-gradient(90deg, #ff416c, #ff4b2b)";
-    
-    subGrid.innerHTML += `
-      <div class="sub-stat-box">
-        <p>${key} <span style="float:right">${stat.c}/${stat.t}</span></p>
-        <div class="water-bar"><div class="water-fill" style="width: 0%; background: ${gradient};"></div></div>
-      </div>
-    `;
+    let stat = subs[key]; let pct = (stat.c / stat.t) * 100;
+    let gradient = pct > 75 ? "linear-gradient(90deg, #00c6ff, #0072ff)" : pct > 40 ? "linear-gradient(90deg, #11998e, #38ef7d)" : "linear-gradient(90deg, #ff416c, #ff4b2b)";
+    subGrid.innerHTML += `<div class="sub-stat-box"><p>${key} <span style="float:right">${stat.c}/${stat.t}</span></p><div class="water-bar"><div class="water-fill" style="width: 0%; background: ${gradient};"></div></div></div>`;
   }
   
-  setTimeout(() => {
-    const fills = document.querySelectorAll('.water-fill');
-    let i = 0;
-    for(let key in subs) { fills[i].style.width = ((subs[key].c / subs[key].t) * 100) + '%'; i++; }
-  }, 700); 
-
+  setTimeout(() => { const fills = document.querySelectorAll('.water-fill'); let i = 0; for(let key in subs) { fills[i].style.width = ((subs[key].c / subs[key].t) * 100) + '%'; i++; } }, 700); 
   document.getElementById('review-container').appendChild(document.getElementById('questions-container'));
 
   const userName = document.getElementById('user-name').value.trim();
@@ -763,62 +684,85 @@ function updateScoreBoard() {
   const usePenalty = document.getElementById('neg-toggle').checked;
   const score = globalCorrect - (usePenalty ? (globalWrong * 0.25) : 0);
   
-  document.getElementById('stat-correct').innerText = globalCorrect;
-  document.getElementById('stat-wrong').innerText = globalWrong;
-  document.getElementById('stat-score').innerText = score.toFixed(1);
-  
-  const penaltyText = document.getElementById('penalty-text');
-  const wrongCard = document.getElementById('wrong-card');
-  const wave = document.getElementById('liquid-wave');
+  document.getElementById('stat-correct').innerText = globalCorrect; document.getElementById('stat-wrong').innerText = globalWrong; document.getElementById('stat-score').innerText = score.toFixed(1);
+  const penaltyText = document.getElementById('penalty-text'); const wrongCard = document.getElementById('wrong-card'); const wave = document.getElementById('liquid-wave');
 
   if(usePenalty) {
-      penaltyText.innerHTML = `Wrong (-${(globalWrong * 0.25).toFixed(2)})`;
-      wrongCard.style.borderColor = '#da3633';
-      wrongCard.style.boxShadow = '0 0 20px rgba(218,54,51,0.1)';
-      wave.style.background = 'rgba(245, 166, 35, 0.85)';
+      penaltyText.innerHTML = `Wrong (-${(globalWrong * 0.25).toFixed(2)})`; wrongCard.style.borderColor = '#da3633'; wrongCard.style.boxShadow = '0 0 20px rgba(218,54,51,0.1)'; wave.style.background = 'rgba(245, 166, 35, 0.85)';
   } else {
-      penaltyText.innerHTML = "Wrong (No Penalty)";
-      wrongCard.style.borderColor = '#8b949e';
-      wrongCard.style.boxShadow = 'none';
-      wave.style.background = 'rgba(35, 134, 54, 0.85)'; 
+      penaltyText.innerHTML = "Wrong (No Penalty)"; wrongCard.style.borderColor = '#8b949e'; wrongCard.style.boxShadow = 'none'; wave.style.background = 'rgba(35, 134, 54, 0.85)'; 
   }
 
-  let scorePct = Math.max(0, (score / db.length)); 
-  document.getElementById('liquid-score-text').innerText = score.toFixed(1);
-  wave.style.top = (100 - (scorePct * 100)) + '%';
+  let scorePct = Math.max(0, (score / db.length)); document.getElementById('liquid-score-text').innerText = score.toFixed(1); wave.style.top = (100 - (scorePct * 100)) + '%';
 }
 
 function filterReview(mode) {
-    const cards = document.querySelectorAll('.question-card.review-mode');
-    const btnAll = document.getElementById('btn-show-all');
-    const btnWrong = document.getElementById('btn-show-wrong');
-
-    if(mode === 'all') {
-        btnAll.classList.add('active-glow');
-        btnAll.classList.remove('dimmed');
-        btnWrong.classList.add('dimmed');
-        btnWrong.classList.remove('active-glow');
-    } else if (mode === 'wrong') {
-        btnWrong.classList.add('active-glow');
-        btnWrong.classList.remove('dimmed');
-        btnAll.classList.add('dimmed');
-        btnAll.classList.remove('active-glow');
-    }
-
+    const cards = document.querySelectorAll('.question-card.review-mode'); const btnAll = document.getElementById('btn-show-all'); const btnWrong = document.getElementById('btn-show-wrong');
+    if(mode === 'all') { btnAll.classList.add('active-glow'); btnAll.classList.remove('dimmed'); btnWrong.classList.add('dimmed'); btnWrong.classList.remove('active-glow'); } 
+    else if (mode === 'wrong') { btnWrong.classList.add('active-glow'); btnWrong.classList.remove('dimmed'); btnAll.classList.add('dimmed'); btnAll.classList.remove('active-glow'); }
     cards.forEach(card => {
         const expBox = card.querySelector('.explanation-box');
-        if(mode === 'all') {
-            card.style.display = 'block';
-            expBox.style.display = 'block';
-        } else if (mode === 'wrong') {
-            if(card.classList.contains('has-mistake')) {
-                card.style.display = 'block';
-                expBox.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        }
+        if(mode === 'all') { card.style.display = 'block'; expBox.style.display = 'block'; } 
+        else if (mode === 'wrong') { if(card.classList.contains('has-mistake')) { card.style.display = 'block'; expBox.style.display = 'block'; } else { card.style.display = 'none'; } }
     });
+}
+
+// 📸 NEW: STORY RECEIPT GENERATOR FUNCTION
+function showReceipt() {
+    const userName = document.getElementById('user-name').value.trim() || "Genius";
+    const scoreText = document.getElementById('stat-score').innerText;
+    const percentage = (parseFloat(scoreText) / db.length) * 100;
+    
+    let rating = "Cooked 💀"; let emoji = "💀";
+    if (percentage >= 80) { rating = "Absolute GOAT 🐐"; emoji = "🔥"; }
+    else if (percentage >= 50) { rating = "Locked In 🔒"; emoji = "🎯"; }
+
+    const d = new Date(); const dateStr = d.toLocaleDateString('en-GB');
+
+    document.getElementById('story-receipt').innerHTML = `
+        <div style="font-size: 50px; margin-bottom: -10px;">${emoji}</div>
+        <h2 style="font-size: 28px; color: var(--accent); letter-spacing: 2px; margin-bottom: 5px;">EXAM WRAPPED</h2>
+        <p style="color: var(--muted); font-size: 14px; margin-top: 0;">${dateStr}</p>
+        
+        <div class="receipt-lines"></div>
+        <h3 style="font-size: 22px; font-weight: 800; margin: 0;">👤 ${userName}</h3>
+        <div class="receipt-lines"></div>
+        
+        <div style="width: 80%; display: flex; justify-content: space-between; margin: 10px 0; font-size: 16px;">
+            <span style="color: #8b949e;">Total Questions</span><span style="font-weight: bold;">${db.length}</span>
+        </div>
+        <div style="width: 80%; display: flex; justify-content: space-between; margin: 10px 0; font-size: 16px;">
+            <span style="color: #8b949e;">Correct Answers</span><span style="color: var(--correct); font-weight: bold;">${globalCorrect}</span>
+        </div>
+        <div style="width: 80%; display: flex; justify-content: space-between; margin: 10px 0; font-size: 16px;">
+            <span style="color: #8b949e;">Wrong Answers</span><span style="color: var(--wrong); font-weight: bold;">${globalWrong}</span>
+        </div>
+        
+        <div class="receipt-lines"></div>
+        
+        <p style="font-size: 16px; color: #8b949e; margin-bottom: 0;">Final Score</p>
+        <h1 style="font-size: 55px; margin: 0; color: var(--accent); text-shadow: 0 4px 20px rgba(245,166,35,0.4);">${scoreText}</h1>
+        
+        <div class="receipt-lines"></div>
+        
+        <p style="font-size: 14px; color: #8b949e; letter-spacing: 2px; margin-bottom: 0;">VIBE CHECK</p>
+        <h2 style="font-size: 26px; margin-top: 5px; font-weight: 900;">${rating}</h2>
+        
+        <div style="position: absolute; bottom: 15px; width: 100%; text-align: center; opacity: 0.3; font-family: monospace; font-size: 12px; letter-spacing: 5px;">
+            ||| | || ||| | ||| | || |
+        </div>
+    `;
+    
+    const overlay = document.getElementById('receipt-overlay');
+    overlay.style.display = 'flex';
+    setTimeout(() => { overlay.style.opacity = '1'; }, 50);
+}
+
+function closeReceipt(e) {
+    if(e.target.id === 'receipt-overlay') {
+        const overlay = document.getElementById('receipt-overlay');
+        overlay.style.opacity = '0'; setTimeout(() => { overlay.style.display = 'none'; }, 400);
+    }
 }
 </script>
 </body>

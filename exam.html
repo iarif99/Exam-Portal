@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ExamPortal — Redirecting...</title>
+  <script>
+    const w    = new URLSearchParams(window.location.search).get('w');
+    const base = "https://iarif99.github.io/Exam-Portal/ExamPortal.html?import=";
+    const raw  = "https://raw.githubusercontent.com/iarif99/Exam-Portal/main/";
+    if (w) {
+      window.location.replace(base + raw + w + ".json");
+    } else {
+      document.write("❌ No exam specified. Use ?w=week1");
+    }
+  </script>
+</head>
+</html>

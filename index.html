@@ -3768,6 +3768,7 @@ body.exam-active #subject-drawer {
   top: calc(60px + var(--sat, 0px));
   height: calc(100dvh - 60px - var(--sat, 0px));
   overflow: hidden;
+  border-top: 1px solid var(--border-gold);
 }
 /* Result/end page: drawer same offset as exam page for visual consistency */
 body.exam-finished #subject-drawer {
@@ -8719,6 +8720,101 @@ body.minimal-mode #eel-track { background: rgba(0,0,0,0.08); }
   will-change: transform, opacity;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+}
+
+/* ══ iOS PWA: hide old arif-float watermark on homepage only
+   (replaced by the chip handle watermark) ══ */
+body.is-pwa-app #arif-float[data-state="home"] {
+  display: none !important;
+}
+
+/* ══ iOS PWA: smooth fade-out of uid bar when exam starts ══
+   Override display:none with opacity fade + pointer-events off.
+   visibility:hidden after transition via delay so it doesn't block taps. */
+body.is-pwa-app #ep-device-chip {
+  -webkit-transition: opacity 0.55s ease, visibility 0.55s ease !important;
+  transition: opacity 0.55s ease, visibility 0.55s ease !important;
+}
+body.is-pwa-app.exam-active #ep-device-chip,
+body.is-pwa-app.exam-finished #ep-device-chip {
+  display: block !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ══ iOS PWA: "made by Arif" watermark on chip handle ══
+   Lives inside the always-visible 44px handle strip, top-left.
+   Moves up/down with the bar naturally. */
+body.is-pwa-app #ep-chip-handle {
+  position: relative !important;
+}
+body.is-pwa-app #ep-chip-handle::before {
+  content: 'made by Arif';
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-family: var(--font-en), Inter, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: rgba(116,185,255,0.45);
+  pointer-events: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ══ iOS: Home page L button + orbit circle ══
+   Force show on iOS home page (overrides mobile media query hide).
+   overflow:visible + position:fixed ensures ::after ring renders outside button bounds on iOS 12+. */
+body.is-mobile-app:not(.exam-active):not(.exam-finished) #global-lm-btn {
+  display: -webkit-flex !important;
+  display: flex !important;
+  overflow: visible !important;
+  position: fixed !important;
+}
+body.is-mobile-app:not(.exam-active):not(.exam-finished) #global-lm-btn::after {
+  content: '';
+  position: absolute;
+  top: -5px; right: -5px; bottom: -5px; left: -5px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: rgba(255,209,102,0.80);
+  border-right-color: rgba(116,185,255,0.45);
+  border-bottom-color: rgba(255,209,102,0.20);
+  -webkit-animation: lBtnOrbit 2.8s linear infinite;
+  animation: lBtnOrbit 2.8s linear infinite;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ══ iOS: Drawer power-btn orbit circle fix (exam + result) ══
+   position:relative + overflow:visible lets ::after render outside button on iOS 12+ (XS Max safe). */
+body.is-mobile-app #power-btn {
+  position: relative !important;
+  overflow: visible !important;
+}
+body.is-mobile-app #power-btn::after {
+  content: '';
+  position: absolute;
+  top: -5px; right: -5px; bottom: -5px; left: -5px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: rgba(255,209,102,0.80);
+  border-right-color: rgba(116,185,255,0.45);
+  border-bottom-color: rgba(255,209,102,0.20);
+  -webkit-animation: lBtnOrbit 3s linear infinite;
+  animation: lBtnOrbit 3s linear infinite;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 1;
 }
 </style>
 </head>
